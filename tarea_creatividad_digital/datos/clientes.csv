@@ -1,0 +1,8 @@
+cliente,industria,tamano,pais_origen,nivel_contrato,descuento_pct,anios_cliente
+CromaLab,Moda y Belleza,Mediana,MX,Premium,10,3
+FrameHouse,Entretenimiento,Grande,AR,Enterprise,18,6
+LumaAds,Tecnologia,Pequena,MX,Basico,5,1
+NeoStudio,Alimentos y Bebidas,Mediana,CO,Premium,12,4
+PixelForge,Retail,Grande,PE,Enterprise,15,7
+BrandWave,Automotriz,Grande,MX,Enterprise,20,9
+ViralCo,Salud y Bienestar,Pequena,AR,Basico,3,1

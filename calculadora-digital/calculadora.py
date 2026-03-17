@@ -487,6 +487,88 @@ def generar_grafico_jpg():
     print(f"{Colores.VERDE}Gráfico guardado en datos/grafico_operaciones.jpg{Colores.FIN}")
 
 # ==============================
+# MUD BATCH
+# ==============================
+
+def modo_batch():
+    """
+    Ejecuta operaciones desde un archivo operaciones.txt
+    Formato esperado:
+    2 + 3
+    5 * 8
+    7 !
+    16 √
+    """
+
+    try:
+        ruta_base = os.path.dirname(__file__)
+        ruta_archivo = os.path.join(ruta_base, "operaciones.txt")
+
+        with open(ruta_archivo, "r", encoding="utf-8") as archivo:
+            print(f"{Colores.AZUL}--- MODO BATCH ACTIVADO ---{Colores.FIN}")
+
+            for linea in archivo:
+                linea = linea.strip()
+
+                if not linea:
+                    continue
+
+                print(f"\nProcesando: {Colores.AMARILLO}{linea}{Colores.FIN}")
+
+                partes = linea.split()
+
+                try:
+                    # Operaciones binarias (2 + 3)
+                    if len(partes) == 3:
+                        a = float(partes[0])
+                        operador = partes[1]
+                        b = float(partes[2])
+
+                        if operador == "+":
+                            resultado = sumar(a, b)
+                        elif operador == "-":
+                            resultado = restar(a, b)
+                        elif operador == "*":
+                            resultado = multiplicar(a, b)
+                        elif operador == "/":
+                            resultado = dividir(a, b)
+                        elif operador == "%":
+                            resultado = modulo(a, b)
+                        elif operador == "^":
+                            resultado = potencia(a, b)
+                        else:
+                            print(f"{Colores.ROJO}Operador inválido.{Colores.FIN}")
+                            continue
+
+                        print(f"Resultado: {Colores.VERDE}{resultado}{Colores.FIN}")
+                        agregar_historial(operador, a, b, resultado)
+
+                    # Operaciones unarias (5 !  o 16 √)
+                    elif len(partes) == 2:
+                        a = float(partes[0])
+                        operador = partes[1]
+
+                        if operador == "!":
+                            resultado = math.factorial(int(a))
+                        elif operador == "√":
+                            resultado = math.sqrt(a)
+                        else:
+                            print(f"{Colores.ROJO}Operador inválido.{Colores.FIN}")
+                            continue
+
+                        print(f"Resultado: {Colores.VERDE}{resultado}{Colores.FIN}")
+                        agregar_historial(operador, a, None, resultado)
+
+                    else:
+                        print(f"{Colores.ROJO}Formato incorrecto en línea: {linea}{Colores.FIN}")
+
+                except Exception as e:
+                    print(f"{Colores.ROJO}Error procesando línea: {linea}{Colores.FIN}")
+
+    except FileNotFoundError:
+        print(f"{Colores.ROJO}Archivo operaciones.txt no encontrado en la carpeta del proyecto.{Colores.FIN}")
+
+# ==============================
 # MENÚ PRINCIPAL
 # ==============================
 
@@ -508,7 +590,8 @@ def menu_principal():
         print("8. Análisis con Pandas")
         print("9. Comparación de usuarios")
         print("10. Generar gráfico JPG")
-        print("11. Salir")
+        print("11. Modo Batch")
+        print("12. Salir")
 
         opcion = input(f"{Colores.AMARILLO}Seleccione una opción: {Colores.FIN}")
 
@@ -533,6 +616,8 @@ def menu_principal():
         elif opcion == "10":
             generar_grafico_jpg()
         elif opcion == "11":
+            modo_batch() 
+        elif opcion == "12":
             guardar_historial()
             print("Guardando historial... Byes<3")
             break
