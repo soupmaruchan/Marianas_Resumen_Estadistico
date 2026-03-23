@@ -13,14 +13,13 @@ import os
 from datetime import datetime
 import csv
 import json
-import pandas as pd # type: ignore
-import matplotlib.pyplot as plt # type: ignore
+import pandas as pd 
+import matplotlib.pyplot as plt 
 import math
 
-# ==============================
+# -------------------------
 # COLORSITOS
-# ==============================
-
+# -------------------------
 class Colores:
     HEADER = "\033[95m"
     AZUL = "\033[94m"
@@ -29,23 +28,20 @@ class Colores:
     ROJO = "\033[91m"
     FIN = "\033[0m"
 
-# ==============================
+# -------------------------
 # VARIABLES GLOBALES
-# ==============================
-
+# -------------------------
 HISTORIAL = []
 RUTA_HISTORIAL = "datos/historial.json"
 
-# ==============================
+# -------------------------
 # SISTEMA DE USUARIOS
-# ==============================
-
+# -------------------------
 USUARIO_ACTUAL = None
 
-# ==============================
+# -------------------------
 # UTILIDADES GENERALES
-# ==============================
-
+# -------------------------
 def validar_numero(mensaje):
     """
     Valida que el usuario ingrese un número.
@@ -59,7 +55,7 @@ def validar_numero(mensaje):
 def guardar_historial():
     """
     Guarda el historial en archivo en formato JSON.
-    Se usa JSON porque ahora guardamos diccionarios,
+    Se usa JSON pq ahora guardamos diccionarios,
     no texto plano.
     """
     os.makedirs("datos", exist_ok=True)
@@ -76,7 +72,7 @@ def cargar_historial():
             try:
                 datos = json.load(archivo)
                 HISTORIAL.extend(datos)
-            except:
+            except Exception:
                 pass  # Si el archivo está vacío o corrupto, no rompe el programa
 def login():
     """
@@ -128,30 +124,14 @@ def mostrar_historial():
         else:
             print(f"{registro['fecha']} | {registro['operacion']} | {registro['num1']} → {registro['resultado']}")
 
-# ==============================
+# -------------------------
 # CALCULADORA BÁSICA
-# ==============================
-
-def sumar(a, b):
-    return a + b
-
-def restar(a, b):
-    return a - b
-
-def multiplicar(a, b):
-    return a * b
-
+# -------------------------
 def dividir(a, b):
     if b == 0:
         print(f"{Colores.ROJO}Error: No se puede dividir entre cero.{Colores.FIN}")
         return None
     return a / b
-
-def modulo(a, b):
-    return a % b
-
-def potencia(a, b):
-    return a ** b
 
 OPERACIONES = {
     "1": ("Suma", lambda a, b: a + b, "+"),
@@ -162,15 +142,6 @@ OPERACIONES = {
     "6": ("Potencia", lambda a, b: a ** b, "^"),
     "7": ("Factorial", lambda a, b: math.factorial(int(a)), "!"),
     "8": ("Raíz Cuadrada", lambda a, b: math.sqrt(a), "√"),
-}
-
-CONVERSIONES = {
-    "1": ("Bytes → KB", lambda x: x / 1024, "Bytes", "KB"),
-    "2": ("KB → Bytes", lambda x: x * 1024, "KB", "Bytes"),
-    "3": ("KB → MB", lambda x: x / 1024, "KB", "MB"),
-    "4": ("MB → KB", lambda x: x * 1024, "MB", "KB"),
-    "5": ("MB → GB", lambda x: x / 1024, "MB", "GB"),
-    "6": ("GB → MB", lambda x: x * 1024, "GB", "MB"),
 }
 
 def menu_calculadora_basica():
@@ -190,8 +161,12 @@ def menu_calculadora_basica():
             print(f"{Colores.ROJO}Opción inválida.{Colores.FIN}")
             continue
 
-        a = validar_numero("Ingrese el primer número: ")
-        b = validar_numero("Ingrese el segundo número: ")
+        if opcion in ["7", "8"]:  # operaciones de un solo número
+            a = validar_numero("Ingrese el número: ")
+            b = None
+        else:
+            a = validar_numero("Ingrese el primer número: ")
+            b = validar_numero("Ingrese el segundo número: ")
 
         nombre, funcion, simbolo = OPERACIONES[opcion]
         resultado = funcion(a, b)
@@ -199,30 +174,25 @@ def menu_calculadora_basica():
         if resultado is None:
             continue
 
-        operacion = f"{a} {simbolo} {b} = {resultado}"
+        if b is not None:
+            operacion = f"{a} {simbolo} {b} = {resultado}"
+        else:
+            operacion = f"{simbolo} {a} = {resultado}"
+
         print(f"Resultado: {Colores.VERDE}{operacion}{Colores.FIN}")
         agregar_historial(simbolo, a, b, resultado)
-# ==============================
+
+# -------------------------
 # CONVERSOR DE UNIDADES
-# ==============================
-
-def bytes_a_kb(bytes_):
-    return bytes_ / 1024
-
-def kb_a_bytes(kb):
-    return kb * 1024
-
-def kb_a_mb(kb):
-    return kb / 1024
-
-def mb_a_kb(mb):
-    return mb * 1024
-
-def mb_a_gb(mb):
-    return mb / 1024
-
-def gb_a_mb(gb):
-    return gb * 1024
+# -------------------------
+CONVERSIONES = {
+    "1": ("Bytes → KB", lambda x: x / 1024, "Bytes", "KB"),
+    "2": ("KB → Bytes", lambda x: x * 1024, "KB", "Bytes"),
+    "3": ("KB → MB", lambda x: x / 1024, "KB", "MB"),
+    "4": ("MB → KB", lambda x: x * 1024, "MB", "KB"),
+    "5": ("MB → GB", lambda x: x / 1024, "MB", "GB"),
+    "6": ("GB → MB", lambda x: x * 1024, "GB", "MB"),
+}
 
 def menu_conversor_unidades():
     while True:
@@ -249,10 +219,9 @@ def menu_conversor_unidades():
         print(f"Resultado: {Colores.VERDE}{operacion}{Colores.FIN}")
         agregar_historial(nombre, valor, None, resultado)
 
-# ==============================
+# -------------------------
 # SISTEMAS NUMÉRICOS
-# ==============================
-
+# -------------------------
 def decimal_a_binario(numero):
     """
     Convierte decimal a binario manualmente.
@@ -318,10 +287,9 @@ def menu_sistemas_numericos():
         except ValueError:
             print(f"{Colores.ROJO}Error: Número inválido para esa conversión.{Colores.FIN}")
 
-# ==============================
+# ----------------------------
 # Estadísticas del historial
-# ==============================
-
+# ----------------------------
 def estadisticas_historial():
     if not HISTORIAL:
         print(f"{Colores.ROJO}No hay datos para analizar.{Colores.FIN}")
@@ -329,13 +297,15 @@ def estadisticas_historial():
 
     print(f"{Colores.AZUL}--- ESTADÍSTICAS CON PANDAS ---{Colores.FIN}")
 
-    # Convertimos el historial (lista de diccionarios) a DataFrame
     df = pd.DataFrame(HISTORIAL)
 
     print(f"Total de operaciones: {len(df)}")
 
-    # Solo analizamos resultados numéricos
-    df_numericos = df[pd.to_numeric(df["resultado"], errors="coerce").notnull()]
+    # Convertir a numérico (los que no se puedan → NaN)
+    df["resultado"] = pd.to_numeric(df["resultado"], errors="coerce")
+
+    # Filtrar solo valores numéricos
+    df_numericos = df[df["resultado"].notnull()]
 
     if not df_numericos.empty:
         promedio = df_numericos["resultado"].mean()
@@ -361,9 +331,9 @@ def generar_grafica():
     plt.ylabel("Resultado")
 
     plt.show()
-# -------------------------
+# -----------------------------
 # GRÁFICO ASCII DE FRECUENCIA
-# -------------------------
+# -----------------------------
 def grafico_frecuencia():
     if not HISTORIAL:
         print(f"{Colores.AZUL}No hay datos.{Colores.FIN}")
@@ -410,10 +380,9 @@ def exportar_csv():
 
     print(f"{Colores.VERDE}Historial exportado correctamente a datos/historial.csv{Colores.FIN}")
 
-# ==============================
+# -------------------------
 # ANÁLISIS CON PANDAS
-# ==============================
-
+# -------------------------
 def analisis_con_pandas():
     """
     Analiza el historial usado pandas.
@@ -435,16 +404,16 @@ def analisis_con_pandas():
 
     # Solo resultados numéricos
     df_numericos = df[pd.to_numeric(df["resultado"], errors="coerce").notnull()]
+    df_numericos = df_numericos.copy()
     df_numericos["resultado"] = df_numericos["resultado"].astype(float)
 
     if not df_numericos.empty:
         print("\nEstadísticas de resultados:")
         print(df_numericos["resultado"].describe())
 
-# ==============================
+# ---------------------------
 # COMPARACIÓN ENTRE USUARIOS
-# ==============================
-
+# ---------------------------
 def comparar_usuarios():
     if not HISTORIAL:
         print(f"{Colores.ROJO}No hay datos.{Colores.FIN}")
@@ -462,10 +431,9 @@ def comparar_usuarios():
     usuario_top = conteo.idxmax()
     print(f"\nUsuario más activo: {Colores.AMARILLO}{usuario_top}{Colores.FIN}")
 
-# ==============================
+# -------------------------
 # GRÁFICO REAL EN JPG
-# ==============================
-
+# -------------------------
 def generar_grafico_jpg():
     if not HISTORIAL:
         print(f"{Colores.ROJO}No hay datos.{Colores.FIN}")
@@ -486,10 +454,9 @@ def generar_grafico_jpg():
 
     print(f"{Colores.VERDE}Gráfico guardado en datos/grafico_operaciones.jpg{Colores.FIN}")
 
-# ==============================
+# -------------------------
 # MUD BATCH
-# ==============================
-
+# -------------------------
 def modo_batch():
     """
     Ejecuta operaciones desde un archivo operaciones.txt
@@ -499,6 +466,10 @@ def modo_batch():
     7 !
     16 √
     """
+    simbolo_a_funcion = {
+        datos[2]: datos[1]
+        for datos in OPERACIONES.values()
+    }
 
     try:
         ruta_base = os.path.dirname(__file__)
@@ -518,24 +489,17 @@ def modo_batch():
                 partes = linea.split()
 
                 try:
-                    # Operaciones binarias (2 + 3)
                     if len(partes) == 3:
                         a = float(partes[0])
                         operador = partes[1]
                         b = float(partes[2])
 
-                        if operador == "+":
-                            resultado = sumar(a, b)
-                        elif operador == "-":
-                            resultado = restar(a, b)
-                        elif operador == "*":
-                            resultado = multiplicar(a, b)
-                        elif operador == "/":
-                            resultado = dividir(a, b)
-                        elif operador == "%":
-                            resultado = modulo(a, b)
-                        elif operador == "^":
-                            resultado = potencia(a, b)
+                        if operador in simbolo_a_funcion:
+                            resultado = simbolo_a_funcion[operador](a, b)
+
+                            # evita errores como división entre 0
+                            if resultado is None:
+                                continue
                         else:
                             print(f"{Colores.ROJO}Operador inválido.{Colores.FIN}")
                             continue
@@ -543,7 +507,6 @@ def modo_batch():
                         print(f"Resultado: {Colores.VERDE}{resultado}{Colores.FIN}")
                         agregar_historial(operador, a, b, resultado)
 
-                    # Operaciones unarias (5 !  o 16 √)
                     elif len(partes) == 2:
                         a = float(partes[0])
                         operador = partes[1]
@@ -563,15 +526,14 @@ def modo_batch():
                         print(f"{Colores.ROJO}Formato incorrecto en línea: {linea}{Colores.FIN}")
 
                 except Exception as e:
-                    print(f"{Colores.ROJO}Error procesando línea: {linea}{Colores.FIN}")
+                    print(f"{Colores.ROJO}Error: {e} en línea: {linea}{Colores.FIN}")
 
     except FileNotFoundError:
         print(f"{Colores.ROJO}Archivo operaciones.txt no encontrado en la carpeta del proyecto.{Colores.FIN}")
 
-# ==============================
+# -------------------------
 # MENÚ PRINCIPAL
-# ==============================
-
+# -------------------------
 def menu_principal():
     cargar_historial()
     login()

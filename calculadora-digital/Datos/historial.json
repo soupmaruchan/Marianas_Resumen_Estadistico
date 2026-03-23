@@ -1,82 +1,82 @@
 [
     {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:57:40",
-        "operacion": "+",
-        "num1": 23.0,
-        "num2": 344.0,
-        "resultado": 367.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:57:45",
-        "operacion": "*",
-        "num1": 223.0,
-        "num2": 23.0,
-        "resultado": 5129.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:57:50",
-        "operacion": "-",
-        "num1": 3344.0,
-        "num2": 34.0,
-        "resultado": 3310.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:57:56",
-        "operacion": "*",
-        "num1": 43344.0,
-        "num2": 33444.0,
-        "resultado": 1449596736.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:58:03",
-        "operacion": "!",
-        "num1": 3.0,
-        "num2": 34.0,
-        "resultado": 6
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 19:58:08",
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:45:00",
         "operacion": "\u221a",
-        "num1": 233.0,
-        "num2": 33.0,
-        "resultado": 15.264337522473747
+        "num1": 2000.0,
+        "num2": 4.0,
+        "resultado": 44.721359549995796
     },
     {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 20:11:59",
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:46:02",
+        "operacion": "GB \u2192 MB",
+        "num1": 200.0,
+        "num2": null,
+        "resultado": 204800.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "+",
+        "num1": 15.0,
+        "num2": 25.0,
+        "resultado": 40.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
         "operacion": "-",
-        "num1": 3443.0,
-        "num2": 4433.0,
-        "resultado": -990.0
+        "num1": 100.0,
+        "num2": 42.0,
+        "resultado": 58.0
     },
     {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 20:12:04",
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
         "operacion": "*",
-        "num1": 443.0,
-        "num2": 344.0,
-        "resultado": 152392.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 20:12:09",
-        "operacion": "-",
-        "num1": 333.0,
-        "num2": 3.0,
-        "resultado": 330.0
-    },
-    {
-        "usuario": "Mariana",
-        "fecha": "2026-03-01 20:12:16",
-        "operacion": "!",
-        "num1": 66.0,
+        "num1": 8.0,
         "num2": 7.0,
-        "resultado": 544344939077443064003729240247842752644293064388798874532860126869671081148416000000000000000
+        "resultado": 56.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "/",
+        "num1": 144.0,
+        "num2": 12.0,
+        "resultado": 12.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "+",
+        "num1": 500.0,
+        "num2": 150.0,
+        "resultado": 650.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "-",
+        "num1": 200.0,
+        "num2": 75.0,
+        "resultado": 125.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "*",
+        "num1": 12.0,
+        "num2": 12.0,
+        "resultado": 144.0
+    },
+    {
+        "usuario": "Guame",
+        "fecha": "2026-03-08 21:48:49",
+        "operacion": "/",
+        "num1": 1000.0,
+        "num2": 8.0,
+        "resultado": 125.0
     }
 ]
