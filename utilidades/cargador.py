@@ -13,6 +13,7 @@ def _base_recursos():
 class Cargador:
     _cache = {}
     BASE = _base_recursos()
+    
     @classmethod
     def ruta(cls, ruta_relativa):
         if os.path.isabs(ruta_relativa):
@@ -43,7 +44,8 @@ class Cargador:
                     return os.path.join(carpeta, candidato)
 
         return ruta
-
+    
+    @classmethod
     def imagen(cls, ruta_relativa, size=None):
         clave = (ruta_relativa, size)
         if clave in cls._cache:
@@ -62,6 +64,7 @@ class Cargador:
         cls._cache[clave] = photo
         return photo
 
+    @classmethod
     def imagen_pil(cls, ruta_relativa, size=None):
         ruta = cls.ruta(ruta_relativa)
         if not os.path.exists(ruta):
