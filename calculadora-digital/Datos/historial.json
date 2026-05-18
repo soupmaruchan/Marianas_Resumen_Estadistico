@@ -1,0 +1,82 @@
+[
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:57:40",
+        "operacion": "+",
+        "num1": 23.0,
+        "num2": 344.0,
+        "resultado": 367.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:57:45",
+        "operacion": "*",
+        "num1": 223.0,
+        "num2": 23.0,
+        "resultado": 5129.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:57:50",
+        "operacion": "-",
+        "num1": 3344.0,
+        "num2": 34.0,
+        "resultado": 3310.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:57:56",
+        "operacion": "*",
+        "num1": 43344.0,
+        "num2": 33444.0,
+        "resultado": 1449596736.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:58:03",
+        "operacion": "!",
+        "num1": 3.0,
+        "num2": 34.0,
+        "resultado": 6
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 19:58:08",
+        "operacion": "\u221a",
+        "num1": 233.0,
+        "num2": 33.0,
+        "resultado": 15.264337522473747
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 20:11:59",
+        "operacion": "-",
+        "num1": 3443.0,
+        "num2": 4433.0,
+        "resultado": -990.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 20:12:04",
+        "operacion": "*",
+        "num1": 443.0,
+        "num2": 344.0,
+        "resultado": 152392.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 20:12:09",
+        "operacion": "-",
+        "num1": 333.0,
+        "num2": 3.0,
+        "resultado": 330.0
+    },
+    {
+        "usuario": "Mariana",
+        "fecha": "2026-03-01 20:12:16",
+        "operacion": "!",
+        "num1": 66.0,
+        "num2": 7.0,
+        "resultado": 544344939077443064003729240247842752644293064388798874532860126869671081148416000000000000000
+    }
+]

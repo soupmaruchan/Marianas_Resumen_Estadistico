@@ -1,0 +1,6 @@
+REPORTE DE CALIFICACIONES
+
+matematicas: 81.57
+fisica: 81.86
+quimica: 82.14
+historia: 81.71

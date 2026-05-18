@@ -1,0 +1,9 @@
+REPORTE DE TEMPERATURAS
+
+Lunes: 39.00°C
+Martes: 90.00°C
+Miércoles: 30.00°C
+Jueves: 40.00°C
+Viernes: 30.00°C
+Sábado: 20.00°C
+Domingo: 20.00°C
