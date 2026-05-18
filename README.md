@@ -1,6 +1,6 @@
 # Pretty Cute Closet
 
-App de escritorio kawaii hecha con Python + Tkinter.
+App de escritorio hecha con Python + Tkinter.
 
 ## Que incluye
 
@@ -52,51 +52,8 @@ Cuando se usa el `.exe`, los datos se guardan en
 
 No necesitas crear esas carpetas a mano.
 
-## Crear una app descargable
-
-Instala PyInstaller:
-
-```bash
-python -m pip install pyinstaller
-```
-
-Luego genera el ejecutable con el icono de libreta:
-
-```bash
-pyinstaller --onefile --windowed --clean --name "Pretty Cute Closet" --icon "assets/icono_app.ico" --add-data "pantashas;pantashas" --add-data "assets;assets" --add-data "datos;datos" main.py
-```
-
-El `.exe` queda en `dist/Pretty Cute Closet.exe`. Tambien puedes abrir
-`crear_app.bat` para que instale lo necesario y genere el ejecutable solo.
-Al compartir solo el `.exe`, el codigo queda empaquetado dentro de la app y
-no se entrega como archivos `.py` sueltos.
-
-## Compartirla con otras personas
-
-Tienes dos formas bonitas:
-
-1. Compartir el proyecto completo:
-   - Sube la carpeta a GitHub desde VS Code.
-   - Quien la descargue instala Python y corre `python -B main.py`.
-   - Es la mejor opcion para profes o personas que quieran ver el codigo.
-
-2. Compartir solo la app:
-   - Genera el ejecutable con PyInstaller.
-   - Comprime la carpeta `dist` en `.zip`.
-   - Sube ese `.zip` a Google Drive, GitHub Releases o un link de descarga.
-   - Quien lo descargue abre el `.exe` sin tocar el codigo.
-
-## Subirla a GitHub como descargable
-
-Para que cualquiera descargue la app sin ver el codigo, crea un repositorio
-publico solo para descargas y sube ahi el `.zip` de `dist` como Release.
-Guarda el proyecto con codigo en un repositorio privado o en tu computadora.
-
-Pasos:
-
-1. Abre `crear_app.bat` y espera a que cree `dist/Pretty Cute Closet.exe`.
-2. Da clic derecho sobre la carpeta `dist` y comprimela en `.zip`.
-3. En GitHub crea un repositorio publico, por ejemplo `pretty-cute-closet`.
-4. En el repositorio entra a `Releases` > `Create a new release`.
-5. Escribe un tag como `v1.0.0`, titulo `Pretty Cute Closet` y sube el `.zip`.
-6. Publica la Release y comparte ese link.
+## Proyecto realizado por:
+- Mariana Fabiola Cisneros García
+- Jennifer Atziri Mariscal Magaña
+- Elena Yaretzi Ochoa Jarrillo
+- Esthela Naomi Oroz Leal
