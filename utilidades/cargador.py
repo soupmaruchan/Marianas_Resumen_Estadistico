@@ -13,7 +13,7 @@ def _base_recursos():
 class Cargador:
     _cache = {}
     BASE = _base_recursos()
-
+    @classmethod
     def ruta(cls, ruta_relativa):
         if os.path.isabs(ruta_relativa):
             ruta = ruta_relativa
