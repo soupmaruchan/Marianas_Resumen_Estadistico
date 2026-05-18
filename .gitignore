@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+datos/galeria/
+datos/diario_imagenes/
+datos/diario_imagenes.json
+datos/cursor/
+datos/paginas_texto/
