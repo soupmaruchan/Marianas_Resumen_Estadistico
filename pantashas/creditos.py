@@ -38,7 +38,7 @@ class Creditos(tk.Frame):
             ("Programacion y desarrollo del codigo",
              "Mariana Fabiola Cisneros Garcia"),
             ("Conceptualizacion y metodologia",
-             "Jennifer Atziri Mariscal Magña"),
+             "Jennifer Atziri Mariscal Magaña"),
         ]
 
         y = 264

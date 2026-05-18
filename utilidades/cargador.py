@@ -14,7 +14,6 @@ class Cargador:
     _cache = {}
     BASE = _base_recursos()
 
-    @classmethod
     def ruta(cls, ruta_relativa):
         if os.path.isabs(ruta_relativa):
             ruta = ruta_relativa
@@ -45,7 +44,6 @@ class Cargador:
 
         return ruta
 
-    @classmethod
     def imagen(cls, ruta_relativa, size=None):
         clave = (ruta_relativa, size)
         if clave in cls._cache:
@@ -64,7 +62,6 @@ class Cargador:
         cls._cache[clave] = photo
         return photo
 
-    @classmethod
     def imagen_pil(cls, ruta_relativa, size=None):
         ruta = cls.ruta(ruta_relativa)
         if not os.path.exists(ruta):
@@ -76,6 +73,5 @@ class Cargador:
             img = img.resize(size, Image.LANCZOS)
         return img
 
-    @classmethod
     def limpiar_cache(cls):
         cls._cache.clear()
